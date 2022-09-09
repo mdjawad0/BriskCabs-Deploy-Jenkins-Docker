@@ -1,0 +1,107 @@
+<div class="container mt-5 pt-5">
+  <div class="row">
+    <div class="col-12 col-sm-8 col-md-6 m-auto">
+      <div class="card border-0 shadow">
+        <div class="card-body">
+          <div class="text-center mt-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
+            <h4 class="display-6">Register</h4>
+          </div>
+          <div class="my-3">
+            <!-- <nav class="nav nav-pills nav-fill">
+              <a class="nav-link active" aria-current="page" href="/register/#"
+                >Cab Rider</a
+              >
+              <a class="nav-link" aria-current="page" href="/register/#"
+                >Customer</a
+              >
+            </nav> -->
+          </div>
+          <div  class="form">
+            <div class="mb-3">
+              <label for="" class="form-label">Name</label>
+              <input
+                type="text"
+                name="name"
+                id=""
+                class="form-control"
+                placeholder="name"
+                aria-describedby="helpId"
+                [(ngModel)]="registerUserData.name"
+              />
+              <!-- <small id="helpId" class="text-muted">Help text</small> -->
+            </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="form-control"
+                placeholder="username"
+                aria-describedby="username"
+                [(ngModel)]="registerUserData.username"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-control"
+                placeholder="Password"
+                aria-describedby="helpId"
+                [(ngModel)]="registerUserData.password"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Address</label>
+              <input
+                type="text"
+                name="address"
+                id="address"
+                class="form-control"
+                placeholder="42 Block"
+                aria-describedby="helpId"
+                [(ngModel)]="registerUserData.address"
+              />
+            </div>
+            <div class="mb-3 input-group d-flex align-items-center gap-2">
+              <input
+                type="checkbox"
+                name="cabRider"
+                id="cabRider"
+                placeholder="Engineering"
+                aria-describedby="helpId"
+                [(ngModel)]="registerUserData.cabRider"
+                class="form-check-input mt-0"
+              />
+              <label for="" class="">Cab Rider</label>
+            </div>
+            <div class="text-left mt-3">
+              <button class="btn btn-primary form-control" (click)="registerUser()">Register</button>
+              <a href="/login" class="nav-link text-end text-primary"
+                >Already have an account?</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
