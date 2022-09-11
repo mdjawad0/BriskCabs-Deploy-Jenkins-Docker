@@ -1,4 +1,5 @@
-<div class="container mt-5 pt-5">
+<app-header></app-header>
+<div class="container mt-5 py-5">
   <div class="row">
     <div class="col-12 col-sm-8 col-md-6 m-auto">
       <div class="card border-0 shadow">
@@ -30,7 +31,7 @@
               >
             </nav> -->
           </div>
-          <div  class="form">
+          <form class="form" (submit)="{}">
             <div class="mb-3">
               <label for="" class="form-label">Name</label>
               <input
@@ -41,8 +42,74 @@
                 placeholder="name"
                 aria-describedby="helpId"
                 [(ngModel)]="registerUserData.name"
+                required="true"
               />
-              <!-- <small id="helpId" class="text-muted">Help text</small> -->
+            </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Age</label>
+              <input
+                type="number"
+                name="age"
+                id="age"
+                class="form-control"
+                placeholder="age"
+                aria-describedby="age"
+                [(ngModel)]="registerUserData.age"
+              />
+            </div>
+
+            <div class="mb-3" *ngIf="registerUserData.cabRider">
+              <label for="" class="form-label">Pan Card</label>
+              <input
+                type="text"
+                name="panCard"
+                id="panCard"
+                class="form-control"
+                placeholder="Pan Card"
+                aria-describedby="Pan Card"
+                [(ngModel)]="registerUserData.panCard"
+              />
+            </div>
+
+            <div class="mb-3" *ngIf="registerUserData.cabRider">
+              <label for="" class="form-label"
+                >Registration Certificate (RC)</label
+              >
+              <input
+                type="text"
+                name="registration_certificate"
+                id="registration_certificate"
+                class="form-control"
+                placeholder="Registration Certificate"
+                aria-describedby="Registration Certificate"
+                [(ngModel)]="registerUserData.registration_certificate"
+              />
+            </div>
+
+            <div class="mb-3" *ngIf="registerUserData.cabRider">
+              <label for="" class="form-label">DL</label>
+              <input
+                type="text"
+                name="DL"
+                id="DL"
+                class="form-control"
+                placeholder="DL"
+                aria-describedby="DL"
+                [(ngModel)]="registerUserData.DL"
+              />
+            </div>
+            <div class="mb-3" *ngIf="registerUserData.cabRider">
+              <label for="" class="form-label">Vehicle</label>
+              <input
+                type="text"
+                name="vehicle"
+                id="vehicle"
+                class="form-control"
+                placeholder="Vehicle"
+                aria-describedby="Vehicle"
+                [(ngModel)]="registerUserData.vehicle"
+              />
             </div>
 
             <div class="mb-3">
@@ -81,6 +148,18 @@
                 [(ngModel)]="registerUserData.address"
               />
             </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Referral Code(optional)</label>
+              <input
+                type="text"
+                name="referral_code"
+                id="referral_code"
+                class="form-control"
+                placeholder="Referral Code"
+                aria-describedby="Referral Code"
+                [(ngModel)]="registerUserData.referral_code"
+              />
+            </div>
             <div class="mb-3 input-group d-flex align-items-center gap-2">
               <input
                 type="checkbox"
@@ -94,14 +173,20 @@
               <label for="" class="">Cab Rider</label>
             </div>
             <div class="text-left mt-3">
-              <button class="btn btn-primary form-control" (click)="registerUser()">Register</button>
+              <button
+                class="btn btn-primary form-control"
+                (click)="registerUser()"
+              >
+                Register
+              </button>
               <a href="/login" class="nav-link text-end text-primary"
                 >Already have an account?</a
               >
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+<app-footer></app-footer>
