@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-booking',
@@ -8,10 +9,9 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./booking.component.scss'],
 })
 export class BookingComponent implements OnInit {
-  from:string = ''
-  to:string = ''
-  readonly:boolean = true
-
+  from: string = '';
+  to: string = '';
+  readonly: boolean = true;
 
   drivers = [
     {
@@ -39,7 +39,11 @@ export class BookingComponent implements OnInit {
   ];
   viewDiver: any;
   closeResult = '';
-  constructor(private modalService: NgbModal, private router: Router) {}
+  constructor(
+    private modalService: NgbModal,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -67,7 +71,12 @@ export class BookingComponent implements OnInit {
     }
   }
 
+  showSuccessToast(title: any, body: any) {
+    this.toastr.success(title, body);
+  }
+
   redirectToRide() {
     this.router.navigate(['/rideing']);
+    this.showSuccessToast('Booking Success !!','')
   }
 }
