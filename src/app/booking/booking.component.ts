@@ -10,6 +10,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class BookingComponent implements OnInit {
   from:string = ''
   to:string = ''
+  readonly:boolean = true
 
 
   drivers = [

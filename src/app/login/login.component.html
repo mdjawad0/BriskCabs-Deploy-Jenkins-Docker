@@ -23,7 +23,7 @@
           </div>
           <form action="">
             <div class="mb-3">
-              <label for="" class="form-label">Username</label>
+              <label for="" class="form-label">Username<span class="text-danger">*</span></label>
               <input
                 type="text"
                 name="username"
@@ -33,11 +33,12 @@
                 aria-describedby="username"
                 required
                 [(ngModel)]="loginData.username"
-                
               />
             </div>
             <div class="mb-3">
-              <label for="" class="form-label">Password</label>
+              <label for="" class="form-label"
+                >Password<span class="text-danger">*</span></label
+              >
               <input
                 type="password"
                 name="password"
@@ -50,7 +51,12 @@
               />
             </div>
             <div class="text-end mt-3">
-              <button class="btn btn-primary form-control" (click)="loginUser()">Login</button>
+              <button
+                class="btn btn-primary form-control"
+                (click)="loginUser()"
+              >
+                Login
+              </button>
               <a href="/register" class="nav-link">Don't have an account?</a>
             </div>
           </form>

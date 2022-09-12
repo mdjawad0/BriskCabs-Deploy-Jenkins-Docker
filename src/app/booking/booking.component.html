@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="pb-3">
+<div class="pb-3" style="min-height: 65vh;">
   <div>
     <h2 class="h1 text-center py-5">Cab Booking</h2>
   </div>
@@ -55,10 +55,13 @@
                   <span>Arival at: {{ driver.arrivalTime }}</span>
                   <span>Duration: {{ driver.duration }}</span>
                 </div>
-                <div>ratings: {{ driver.driverRating }}</div>
+                <div>
+                  ratings: {{ driver.driverRating }}
+                  <ngb-rating [(rate)]="driver.driverRating" [max]="5" [readonly]="readonly"></ngb-rating>
+                </div>
                 <div>
                   fair:
-                  <span class="fw-semibold text-warning">{{
+                  <span class="fw-semibold text-warning">₹{{
                     driver.fare
                   }}</span>
                 </div>

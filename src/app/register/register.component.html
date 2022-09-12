@@ -31,111 +31,131 @@
               >
             </nav> -->
           </div>
-          <form class="form" (submit)="{}">
-            <div class="mb-3">
-              <label for="" class="form-label">Name</label>
-              <input
-                type="text"
-                name="name"
-                id=""
-                class="form-control"
-                placeholder="name"
-                aria-describedby="helpId"
-                [(ngModel)]="registerUserData.name"
-                required="true"
-              />
+          <form class="form" (submit)="({})">
+            <div class="col-12 row">
+              <div class="mb-3 col-6">
+                <label for="" class="form-label"
+                  >Name<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  id=""
+                  class="form-control"
+                  placeholder="name"
+                  aria-describedby="helpId"
+                  [(ngModel)]="registerUserData.name"
+                  required="true"
+                />
+              </div>
+              <div class="mb-3 col-6">
+                <label for="" class="form-label">Age</label>
+                <input
+                  type="number"
+                  name="age"
+                  id="age"
+                  class="form-control"
+                  placeholder="age"
+                  aria-describedby="age"
+                  [(ngModel)]="registerUserData.age"
+                />
+              </div>
             </div>
 
-            <div class="mb-3">
-              <label for="" class="form-label">Age</label>
-              <input
-                type="number"
-                name="age"
-                id="age"
-                class="form-control"
-                placeholder="age"
-                aria-describedby="age"
-                [(ngModel)]="registerUserData.age"
-              />
+            <div class="col-12 row">
+              <div class="mb-3 col-6">
+                <label for="" class="form-label"
+                  >Username<span class="text-danger">*</span></label
+                >
+                <input
+                  type="email"
+                  name="username"
+                  id="username"
+                  class="form-control"
+                  placeholder="username"
+                  aria-describedby="username"
+                  [(ngModel)]="registerUserData.username"
+                />
+              </div>
+              <div class="mb-3 col-6">
+                <label for="" class="form-label"
+                  >Password<span class="text-danger">*</span></label
+                >
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Password"
+                  aria-describedby="helpId"
+                  [(ngModel)]="registerUserData.password"
+                />
+              </div>
             </div>
 
-            <div class="mb-3" *ngIf="registerUserData.cabRider">
-              <label for="" class="form-label">Pan Card</label>
-              <input
-                type="text"
-                name="panCard"
-                id="panCard"
-                class="form-control"
-                placeholder="Pan Card"
-                aria-describedby="Pan Card"
-                [(ngModel)]="registerUserData.panCard"
-              />
+            <div class="col-12 row">
+              <div class="mb-3 col-6" *ngIf="registerUserData.cabRider">
+                <label for="" class="form-label">Pan Card</label>
+                <input
+                  type="text"
+                  name="panCard"
+                  id="panCard"
+                  class="form-control"
+                  placeholder="Pan Card"
+                  aria-describedby="Pan Card"
+                  [(ngModel)]="registerUserData.panCard"
+                />
+              </div>
+
+              <div class="mb-3 col-6" *ngIf="registerUserData.cabRider">
+                <label for="" class="form-label"
+                  >Registration Certificate (RC)<span class="text-danger"
+                    >*</span
+                  ></label
+                >
+                <input
+                  type="text"
+                  name="registration_certificate"
+                  id="registration_certificate"
+                  class="form-control"
+                  placeholder="Registration Certificate"
+                  aria-describedby="Registration Certificate"
+                  [(ngModel)]="registerUserData.registration_certificate"
+                />
+              </div>
             </div>
 
-            <div class="mb-3" *ngIf="registerUserData.cabRider">
-              <label for="" class="form-label"
-                >Registration Certificate (RC)</label
-              >
-              <input
-                type="text"
-                name="registration_certificate"
-                id="registration_certificate"
-                class="form-control"
-                placeholder="Registration Certificate"
-                aria-describedby="Registration Certificate"
-                [(ngModel)]="registerUserData.registration_certificate"
-              />
+            <div class="col-12 row">
+              <div class="mb-3 col-6" *ngIf="registerUserData.cabRider">
+                <label for="" class="form-label"
+                  >DL<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  name="DL"
+                  id="DL"
+                  class="form-control"
+                  placeholder="DL"
+                  aria-describedby="DL"
+                  [(ngModel)]="registerUserData.DL"
+                />
+              </div>
+              <div class="mb-3 col-6" *ngIf="registerUserData.cabRider">
+                <label for="" class="form-label"
+                  >Vehicle<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  name="vehicle"
+                  id="vehicle"
+                  class="form-control"
+                  placeholder="Vehicle"
+                  aria-describedby="Vehicle"
+                  [(ngModel)]="registerUserData.vehicle"
+                />
+              </div>
             </div>
 
-            <div class="mb-3" *ngIf="registerUserData.cabRider">
-              <label for="" class="form-label">DL</label>
-              <input
-                type="text"
-                name="DL"
-                id="DL"
-                class="form-control"
-                placeholder="DL"
-                aria-describedby="DL"
-                [(ngModel)]="registerUserData.DL"
-              />
-            </div>
-            <div class="mb-3" *ngIf="registerUserData.cabRider">
-              <label for="" class="form-label">Vehicle</label>
-              <input
-                type="text"
-                name="vehicle"
-                id="vehicle"
-                class="form-control"
-                placeholder="Vehicle"
-                aria-describedby="Vehicle"
-                [(ngModel)]="registerUserData.vehicle"
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="" class="form-label">Username</label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                class="form-control"
-                placeholder="username"
-                aria-describedby="username"
-                [(ngModel)]="registerUserData.username"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="" class="form-label">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                class="form-control"
-                placeholder="Password"
-                aria-describedby="helpId"
-                [(ngModel)]="registerUserData.password"
-              />
-            </div>
             <div class="mb-3">
               <label for="" class="form-label">Address</label>
               <input
@@ -148,29 +168,35 @@
                 [(ngModel)]="registerUserData.address"
               />
             </div>
-            <div class="mb-3">
-              <label for="" class="form-label">Referral Code(optional)</label>
-              <input
-                type="text"
-                name="referral_code"
-                id="referral_code"
-                class="form-control"
-                placeholder="Referral Code"
-                aria-describedby="Referral Code"
-                [(ngModel)]="registerUserData.referral_code"
-              />
-            </div>
-            <div class="mb-3 input-group d-flex align-items-center gap-2">
-              <input
-                type="checkbox"
-                name="cabRider"
-                id="cabRider"
-                placeholder="Engineering"
-                aria-describedby="helpId"
-                [(ngModel)]="registerUserData.cabRider"
-                class="form-check-input mt-0"
-              />
-              <label for="" class="">Cab Rider</label>
+            <div class="col-12 row">
+              <div class="mb-3 col-6">
+                <label for="" class="form-label">Referral Code(optional)</label>
+                <input
+                  type="text"
+                  name="referral_code"
+                  id="referral_code"
+                  class="form-control"
+                  placeholder="Referral Code"
+                  aria-describedby="Referral Code"
+                  [(ngModel)]="registerUserData.referral_code"
+                />
+              </div>
+              <div class="col-6">
+                <div class="mb-3 ">
+                  <div>
+                    <label for="" class="form-label">Cab Rider</label>
+                  </div>
+                  <input
+                    type="checkbox"
+                    name="cabRider"
+                    id="cabRider"
+                    placeholder="Engineering"
+                    aria-describedby="helpId"
+                    [(ngModel)]="registerUserData.cabRider"
+                    class="form-check-input form-control mt-0"
+                  />
+                </div>
+              </div>
             </div>
             <div class="text-left mt-3">
               <button
