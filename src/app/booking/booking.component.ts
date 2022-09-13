@@ -76,7 +76,7 @@ export class BookingComponent implements OnInit {
   }
 
   redirectToRide() {
-    this.router.navigate(['/rideing']);
+    this.router.navigate(['/ride']);
     this.showSuccessToast('Booking Success !!','')
   }
 }
