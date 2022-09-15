@@ -12,6 +12,8 @@ export class BookingComponent implements OnInit {
   from: string = '';
   to: string = '';
   readonly: boolean = true;
+  isAdmin = window.localStorage.getItem('isAdmin')
+  
 
   drivers = [
     {
@@ -45,7 +47,11 @@ export class BookingComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(this.isAdmin === 'true'){
+      this.router.navigate(['/admin']);
+    }
+  }
 
   open(content: any, driverId: any) {
     this.viewDiver = this.drivers[driverId - 1];
@@ -59,7 +65,9 @@ export class BookingComponent implements OnInit {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         }
       );
+
   }
+  
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

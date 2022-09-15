@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
   userType: string = 'Driver';
+  isAdmin = window.localStorage.getItem('isAdmin');
 
   driverList = [
     {
@@ -41,9 +43,13 @@ export class AdminComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.isAdmin === 'false') {
+      this.router.navigate(['/']);
+    }
+  }
 
   onApprove(id: number) {
     // integrate api to approve driver with id

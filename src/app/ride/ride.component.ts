@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-ride',
   templateUrl: './ride.component.html',
@@ -18,7 +18,12 @@ export class RideComponent implements OnInit {
     driverRating: 4.5,
     fare: 315,
   };
-  constructor() {}
+  isAdmin = window.localStorage.getItem('isAdmin');
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.isAdmin === 'true') {
+      this.router.navigate(['/admin']);
+    }
+  }
 }
