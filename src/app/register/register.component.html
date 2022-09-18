@@ -31,7 +31,7 @@
               >
             </nav> -->
           </div>
-          <form class="form" (submit)="({})">
+          <form class="form" (submit)="({})" #userForm="ngForm">
             <div class="col-12 row">
               <div class="mb-3 col-6">
                 <label for="" class="form-label"
@@ -47,6 +47,9 @@
                   [(ngModel)]="registerUserData.name"
                   required="true"
                 />
+                <span class="text-danger text-xs" *ngIf="validateName">
+                  <small>Name is required</small>
+                </span>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label">Age</label>
@@ -75,7 +78,11 @@
                   placeholder="username"
                   aria-describedby="username"
                   [(ngModel)]="registerUserData.username"
+                  required="true"
                 />
+                <span class="text-danger text-xs" *ngIf="validateUsername">
+                  <small>Username is required</small>
+                </span>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label"
@@ -89,7 +96,11 @@
                   placeholder="Password"
                   aria-describedby="helpId"
                   [(ngModel)]="registerUserData.password"
+                  required="true"
                 />
+                <span class="text-danger text-xs" *ngIf="validatePassword">
+                  <small>Password must be 6 digit long</small>
+                </span>
               </div>
             </div>
 
@@ -121,7 +132,11 @@
                   placeholder="Registration Certificate"
                   aria-describedby="Registration Certificate"
                   [(ngModel)]="registerUserData.registration_certificate"
+                  required="true"
                 />
+                <span class="text-danger text-xs" *ngIf="validateRc">
+                  <small>RC is required</small>
+                </span>
               </div>
             </div>
 
@@ -138,7 +153,11 @@
                   placeholder="DL"
                   aria-describedby="DL"
                   [(ngModel)]="registerUserData.DL"
+                  required="true"
                 />
+                <span class="text-danger text-xs" *ngIf="validateDl">
+                  <small>DL is required</small>
+                </span>
               </div>
               <div class="mb-3 col-6" *ngIf="registerUserData.cabRider">
                 <label for="" class="form-label"
@@ -152,7 +171,11 @@
                   placeholder="Vehicle"
                   aria-describedby="Vehicle"
                   [(ngModel)]="registerUserData.vehicle"
+                  required="true"
                 />
+                <span class="text-danger text-xs" *ngIf="validateVehicle">
+                  <small>Vehicle is required</small>
+                </span>
               </div>
             </div>
 
@@ -182,7 +205,7 @@
                 />
               </div>
               <div class="col-6">
-                <div class="mb-3 ">
+                <div class="mb-3">
                   <div>
                     <label for="" class="form-label">Cab Rider</label>
                   </div>
@@ -202,6 +225,7 @@
               <button
                 class="btn btn-primary form-control"
                 (click)="registerUser()"
+                [disabled]="userForm.invalid"
               >
                 Register
               </button>

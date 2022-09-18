@@ -21,9 +21,11 @@
             </svg>
             <h4 class="display-6">Login</h4>
           </div>
-          <form action="">
+          <form #userForm="ngForm" action="">
             <div class="mb-3">
-              <label for="" class="form-label">Username<span class="text-danger">*</span></label>
+              <label for="" class="form-label"
+                >Username<span class="text-danger">*</span></label
+              >
               <input
                 type="text"
                 name="username"
@@ -34,6 +36,9 @@
                 required
                 [(ngModel)]="loginData.username"
               />
+              <span class="text-danger text-xs" *ngIf="isUsernameInvalid">
+                <small>Username is required</small>
+              </span>
             </div>
             <div class="mb-3">
               <label for="" class="form-label"
@@ -49,11 +54,15 @@
                 required
                 [(ngModel)]="loginData.password"
               />
+              <span class="text-danger text-xs" *ngIf="passwordInvalid">
+                <small>Password must be 6 digit long</small>
+              </span>
             </div>
             <div class="text-end mt-3">
               <button
                 class="btn btn-primary form-control"
                 (click)="loginUser()"
+                [disabled]="userForm.invalid"
               >
                 Login
               </button>
