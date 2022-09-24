@@ -105,7 +105,7 @@
             </div>
 
             <div class="col-12 row">
-              <div class="mb-3 col-6" *ngIf="registerUserData.cabRider">
+              <div class="mb-3 col-6" *ngIf="registerUserData.isCabRider">
                 <label for="" class="form-label">Pan Card</label>
                 <input
                   type="text"
@@ -118,7 +118,7 @@
                 />
               </div>
 
-              <div class="mb-3 col-6" *ngIf="registerUserData.cabRider">
+              <div class="mb-3 col-6" *ngIf="registerUserData.isCabRider">
                 <label for="" class="form-label"
                   >Registration Certificate (RC)<span class="text-danger"
                     >*</span
@@ -126,12 +126,12 @@
                 >
                 <input
                   type="text"
-                  name="registration_certificate"
-                  id="registration_certificate"
+                  name="rc"
+                  id="rc"
                   class="form-control"
                   placeholder="Registration Certificate"
                   aria-describedby="Registration Certificate"
-                  [(ngModel)]="registerUserData.registration_certificate"
+                  [(ngModel)]="registerUserData.rc"
                   required="true"
                 />
                 <span class="text-danger text-xs" *ngIf="validateRc">
@@ -141,25 +141,25 @@
             </div>
 
             <div class="col-12 row">
-              <div class="mb-3 col-6" *ngIf="registerUserData.cabRider">
+              <div class="mb-3 col-6" *ngIf="registerUserData.isCabRider">
                 <label for="" class="form-label"
                   >DL<span class="text-danger">*</span></label
                 >
                 <input
                   type="text"
-                  name="DL"
-                  id="DL"
+                  name="dl"
+                  id="dl"
                   class="form-control"
-                  placeholder="DL"
-                  aria-describedby="DL"
-                  [(ngModel)]="registerUserData.DL"
+                  placeholder="dl"
+                  aria-describedby="dl"
+                  [(ngModel)]="registerUserData.dl"
                   required="true"
                 />
                 <span class="text-danger text-xs" *ngIf="validateDl">
                   <small>DL is required</small>
                 </span>
               </div>
-              <div class="mb-3 col-6" *ngIf="registerUserData.cabRider">
+              <div class="mb-3 col-6" *ngIf="registerUserData.isCabRider">
                 <label for="" class="form-label"
                   >Vehicle<span class="text-danger">*</span></label
                 >
@@ -196,12 +196,12 @@
                 <label for="" class="form-label">Referral Code(optional)</label>
                 <input
                   type="text"
-                  name="referral_code"
-                  id="referral_code"
+                  name="referralCode"
+                  id="referralCode"
                   class="form-control"
                   placeholder="Referral Code"
                   aria-describedby="Referral Code"
-                  [(ngModel)]="registerUserData.referral_code"
+                  [(ngModel)]="registerUserData.referralCode"
                 />
               </div>
               <div class="col-6">
@@ -211,11 +211,11 @@
                   </div>
                   <input
                     type="checkbox"
-                    name="cabRider"
-                    id="cabRider"
+                    name="isCabRider"
+                    id="isCabRider"
                     placeholder="Engineering"
                     aria-describedby="helpId"
-                    [(ngModel)]="registerUserData.cabRider"
+                    [(ngModel)]="registerUserData.isCabRider"
                     class="form-check-input form-control mt-0"
                   />
                 </div>

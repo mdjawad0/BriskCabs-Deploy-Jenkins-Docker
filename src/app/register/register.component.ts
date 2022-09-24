@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,9 +16,9 @@ export class RegisterComponent implements OnInit {
   validateDl = false;
   validateVehicle = false;
 
-  constructor(private _auth: AuthService) {}
+  constructor(private _auth: AuthService, private router: Router, private toastr: ToastrService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   registerUser() {
     console.log(this.registerUserData)
@@ -35,22 +36,28 @@ export class RegisterComponent implements OnInit {
       this.validatePassword = true;
       return;
     }
-    if (this.registerUserData.cabRider && this.registerUserData.registration_certificate.trim() === '') {
+    if (this.registerUserData.isCabRider && this.registerUserData.rc.trim() === '') {
       this.validateRc = true;
       return;
     }
-    if (this.registerUserData.cabRider && this.registerUserData.vehicle.trim() === '') {
+    if (this.registerUserData.isCabRider && this.registerUserData.vehicle.trim() === '') {
       this.validateVehicle = true;
       return;
     }
-    if (this.registerUserData.cabRider && this.registerUserData.DL.trim() === '') {
+    if (this.registerUserData.isCabRider && this.registerUserData.dl.trim() === '') {
       this.validateDl = true;
       return;
     }
 
     this._auth.registerUser(this.registerUserData).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
+      (res) => {
+        this.toastr.success("Registered Successfully!");
+        localStorage.setItem("isLoggedIn", "true");
+        this.router.navigate(["/booking"]);
+      },
+      (err) => {
+        this.toastr.error("Something went wrong, please try again");
+      }
     );
   }
 }
