@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-booking',
@@ -44,12 +45,30 @@ export class BookingComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authSerivce: AuthService
   ) {}
 
   ngOnInit(): void {
     if(this.isAdmin === 'true'){
       this.router.navigate(['/admin']);
+    }
+
+    
+  }
+
+  getData() {
+    if(this.from !== "" && this.to !== "") {
+      const data = {
+        from: this.from,
+        to: this.to
+      }
+
+      this.authSerivce.getDrivers(data).subscribe((res: any) => {
+        this.drivers = res;
+      }, (error) => {
+        console.log(error);
+      })
     }
   }
 

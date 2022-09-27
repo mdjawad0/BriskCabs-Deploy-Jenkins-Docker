@@ -16,4 +16,8 @@ export class AuthService {
   loginUser(user: any) {
     return this.http.post<any>(`${environment.apiURL}/user/login`, user);
   }
+
+  getDrivers(data: any) { 
+    return this.http.post(`${environment.apiURL}/cabs/nearbyDrivers`, data);
+  }
 }

@@ -12,6 +12,7 @@
             class="form-select mb-3"
             aria-label=".form-select-lg example"
             [(ngModel)]="from"
+            (ngModelChange)="getData()"
           >
             <option selected value="">Journey From</option>
             <option value="Delhi">Delhi</option>
@@ -25,6 +26,7 @@
             class="form-select mb-3"
             aria-label=".form-select-lg example"
             [(ngModel)]="to"
+            (ngModelChange)="getData()"
           >
             <option selected value="">Journey From</option>
             <option value="Delhi">Delhi</option>
