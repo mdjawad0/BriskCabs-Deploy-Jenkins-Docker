@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,49 +8,70 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-  userType: string = 'Driver';
+  userType: string = 'drivers';
   isAdmin = window.localStorage.getItem('isAdmin');
 
-  driverList = [
+  driverList: any = [
     {
-      id: 1,
-      driverName: 'Rohit Sharma',
-      vehicleNumber: 'DL128C',
-      vehicleModel: 'M-MODEL',
-      pic: 'https://st2.depositphotos.com/1372276/5324/i/600/depositphotos_53246545-stock-photo-portrait-taxi-driver-smile-car.jpg',
-    },
-    {
-      id: 2,
-      driverName: 'Ana James',
-      vehicleNumber: 'UK528C',
-      vehicleModel: 'M-MODEL',
-      pic: 'https://www.keeptaxisalive.org/wp-content/uploads/2019/05/download-2.jpg',
+      "id": "1",
+      "age": 24,
+      "name": "Nithi",
+      "username": "User123",
+      "address": null,
+      "referralCode": null,
+      "isCabRider": "yes",
+      "panCard": null,
+      "rc": null,
+      "dl": null,
+      "vehicle": null,
+      "isAdmin": false
     },
   ];
-  customerList = [
+  customerList: any = [
     {
-      id: 1,
-      name: 'Karan Singh',
-      age: 26,
-      location: 'Bihar',
-      pic: 'https://st2.depositphotos.com/1372276/5324/i/600/depositphotos_53246545-stock-photo-portrait-taxi-driver-smile-car.jpg',
-    },
-    {
-      id: 2,
-      name: 'Shiwani Agarwal',
-      age: 24,
-      location: 'Delhi',
-      pic: 'https://www.keeptaxisalive.org/wp-content/uploads/2019/05/download-2.jpg',
+      "id": "2",
+      "age": 22,
+      "name": "Rishabh",
+      "username": "User123",
+      "address": null,
+      "referralCode": null,
+      "isCabRider": "yes",
+      "panCard": null,
+      "rc": null,
+      "dl": null,
+      "vehicle": null,
+      "isAdmin": false
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private adminService: AdminService) { }
 
   ngOnInit(): void {
     if (this.isAdmin === 'false') {
       this.router.navigate(['/']);
     }
+
+    this.getList(this.userType);
   }
+
+  getList(userType: string) {
+    this.adminService.getList(userType).subscribe({
+      next: (res) => {
+        if (userType === "customers") {
+          this.customerList = res.data;
+        } else {
+          this.driverList = res.data;
+        }
+
+
+        console.log(res);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
+  }
+
 
   onApprove(id: number) {
     // integrate api to approve driver with id
