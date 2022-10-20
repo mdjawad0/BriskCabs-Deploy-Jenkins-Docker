@@ -58,6 +58,7 @@ export class BookingComponent implements OnInit {
   }
 
   getData() {
+    
     if(this.from !== "" && this.to !== "") {
       const data = {
         from: this.from,
@@ -73,7 +74,21 @@ export class BookingComponent implements OnInit {
   }
 
   open(content: any, driverId: any) {
+    debugger
     this.viewDiver = this.drivers[driverId - 1];
+    let rideDetails = {
+      id: this.viewDiver.id,
+      from: this.from,
+      to: this.to,
+      driverName: this.viewDiver.driverName,
+      vehicleNumber: this.viewDiver.vehicleNumber,
+      vehicleModel: this.viewDiver.vehicleModel,
+      arrivalTime: this.viewDiver.arrivalTime,
+      duration: this.viewDiver.duration,
+      driverRating: this.viewDiver.driverRating,
+      fare: this.viewDiver.fare,
+    };
+    sessionStorage.setItem("rideDetails", JSON.stringify(rideDetails));
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(

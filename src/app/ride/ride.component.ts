@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-ride',
   templateUrl: './ride.component.html',
   styleUrls: ['./ride.component.scss'],
 })
-export class RideComponent implements OnInit {
+export class RideComponent implements OnInit , OnDestroy{
   rideDetails = {
     id: 1,
     from: 'Gurgaon',
@@ -25,5 +25,13 @@ export class RideComponent implements OnInit {
     if (this.isAdmin === 'true') {
       this.router.navigate(['/admin']);
     }
+    if (sessionStorage.getItem("rideDetails") != null) {
+      debugger
+      let rideDetails : any = sessionStorage.getItem("rideDetails")
+      this.rideDetails = JSON.parse(rideDetails);
+    }
+  }
+  ngOnDestroy() {
+    sessionStorage.removeItem("rideDetails")
   }
 }

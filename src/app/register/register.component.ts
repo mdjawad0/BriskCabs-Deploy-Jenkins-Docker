@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void { }
 
   registerUser() {
+    
     console.log(this.registerUserData)
     if (this.registerUserData.name.trim() === '') {
       this.validateName = true;
@@ -35,6 +36,10 @@ export class RegisterComponent implements OnInit {
     if (this.registerUserData.password.trim().length < 6) {
       this.validatePassword = true;
       return;
+    }
+    else
+    {
+      this.validatePassword = false;
     }
     if (this.registerUserData.isCabRider && this.registerUserData.rc.trim() === '') {
       this.validateRc = true;
