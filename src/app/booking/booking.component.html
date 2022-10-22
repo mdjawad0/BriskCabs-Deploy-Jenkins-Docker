@@ -33,10 +33,13 @@
             <option value="Gurugram">Gurugram</option>
             <option value="Noida">Noida</option>
           </select>
+          <span class="text-danger text-xs" *ngIf="validateFromTo">
+            <small>From and To places cannot be same</small>
+          </span>
         </div>
       </div>
     </div>
-    <div class="card shadow-sm mt-2" *ngIf="from !== '' && to !== ''">
+    <div class="card shadow-sm mt-2" *ngIf="(from !== '' && to !== '') && from !== to">
       <div class="card-body">
         <div class="card shadow-sm mb-2" *ngFor="let driver of drivers">
           <div

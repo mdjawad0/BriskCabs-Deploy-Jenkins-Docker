@@ -14,7 +14,8 @@ export class BookingComponent implements OnInit {
   to: string = '';
   readonly: boolean = true;
   isAdmin = window.localStorage.getItem('isAdmin')
-  
+  validateFromTo = false;
+
 
   drivers = [
     {
@@ -47,29 +48,38 @@ export class BookingComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private authSerivce: AuthService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    if(this.isAdmin === 'true'){
+    if (this.isAdmin === 'true') {
       this.router.navigate(['/admin']);
     }
 
-    
+
   }
 
   getData() {
-    
-    if(this.from !== "" && this.to !== "") {
-      const data = {
-        from: this.from,
-        to: this.to
+
+    debugger
+    if (this.from !== "" && this.to !== "") {
+      if (this.from === this.to) {
+        this.validateFromTo = true;
+        return;
+      }
+      else {
+        this.validateFromTo = false;
+        const data = {
+          from: this.from,
+          to: this.to
+        }
+
+        this.authSerivce.getDrivers(data).subscribe((res: any) => {
+          this.drivers = res;
+        }, (error) => {
+          console.log(error);
+        })
       }
 
-      this.authSerivce.getDrivers(data).subscribe((res: any) => {
-        this.drivers = res;
-      }, (error) => {
-        console.log(error);
-      })
     }
   }
 
@@ -101,7 +111,7 @@ export class BookingComponent implements OnInit {
       );
 
   }
-  
+
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -119,6 +129,6 @@ export class BookingComponent implements OnInit {
 
   redirectToRide() {
     this.router.navigate(['/ride']);
-    this.showSuccessToast('Booking Success !!','')
+    this.showSuccessToast('Booking Success !!', '')
   }
 }
