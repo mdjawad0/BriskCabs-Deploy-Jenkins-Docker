@@ -42,7 +42,7 @@
                   name="name"
                   id=""
                   class="form-control"
-                  placeholder="name"
+                  placeholder="Name"
                   aria-describedby="helpId"
                   [(ngModel)]="registerUserData.name"
                   required="true"
@@ -58,7 +58,7 @@
                   name="age"
                   id="age"
                   class="form-control"
-                  placeholder="age"
+                  placeholder="Age"
                   aria-describedby="age"
                   [(ngModel)]="registerUserData.age"
                 />
@@ -75,7 +75,7 @@
                   name="username"
                   id="username"
                   class="form-control"
-                  placeholder="username"
+                  placeholder="Username"
                   aria-describedby="username"
                   [(ngModel)]="registerUserData.username"
                   required="true"
@@ -129,7 +129,7 @@
                   name="rc"
                   id="rc"
                   class="form-control"
-                  placeholder="Registration Certificate"
+                  placeholder="Registration Certificate No"
                   aria-describedby="Registration Certificate"
                   [(ngModel)]="registerUserData.rc"
                   required="true"
@@ -143,14 +143,14 @@
             <div class="col-12 row">
               <div class="mb-3 col-6" *ngIf="registerUserData.isCabRider">
                 <label for="" class="form-label"
-                  >DL<span class="text-danger">*</span></label
+                  >DL#<span class="text-danger">*</span></label
                 >
                 <input
                   type="text"
                   name="dl"
                   id="dl"
                   class="form-control"
-                  placeholder="dl"
+                  placeholder="Driving Licence No"
                   aria-describedby="dl"
                   [(ngModel)]="registerUserData.dl"
                   required="true"
@@ -168,7 +168,7 @@
                   name="vehicle"
                   id="vehicle"
                   class="form-control"
-                  placeholder="Vehicle"
+                  placeholder="Vehicle Model"
                   aria-describedby="Vehicle"
                   [(ngModel)]="registerUserData.vehicle"
                   required="true"
@@ -186,7 +186,7 @@
                 name="address"
                 id="address"
                 class="form-control"
-                placeholder="42 Block"
+                placeholder="41 Block"
                 aria-describedby="helpId"
                 [(ngModel)]="registerUserData.address"
               />
@@ -229,9 +229,6 @@
               >
                 Register
               </button>
-              <a href="/login" class="nav-link text-end text-primary"
-                >Already have an account?</a
-              >
             </div>
           </form>
         </div>
