@@ -14,6 +14,8 @@ import { RideComponent } from './ride/ride.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingComponent } from './landing/landing.component';
+import { AboutUsComponent } from './aboutUs/aboutUs.component';
+
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AdminComponent } from './admin/admin.component';
@@ -29,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     FooterComponent,
     LandingComponent,
+    AboutUsComponent
     // AdminComponent
   ],
   imports: [
