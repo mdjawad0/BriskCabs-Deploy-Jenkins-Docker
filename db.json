@@ -1,8 +1,26 @@
 {
   "nearbyDrivers": [
     {
-      "id": "1",
-      "name": "James"
+      "id": 1,
+      "driverName": "Vicky Sharma",
+      "vehicleNumber": "DL-128C",
+      "vehicleModel": "Swift",
+      "arrivalTime": "10:00 AM",
+      "duration": "42 mins",
+      "driverRating": 5.0,
+      "fare": 315,
+      "pic": "https://st2.depositphotos.com/1372276/5324/i/600/depositphotos_53246545-stock-photo-portrait-taxi-driver-smile-car.jpg"
+    },
+    {
+      "id": 2,
+      "driverName": "Ana James",
+      "vehicleNumber": "UK-528C",
+      "vehicleModel": "City",
+      "arrivalTime": "10:05 AM",
+      "duration": "37 mins",
+      "driverRating": 4.0,
+      "fare": 408,
+      "pic": "https://www.keeptaxisalive.org/wp-content/uploads/2019/05/download-2.jpg"
     }
   ]
 }

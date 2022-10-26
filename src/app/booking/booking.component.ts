@@ -19,27 +19,16 @@ export class BookingComponent implements OnInit {
 
   drivers = [
     {
-      id: 1,
-      driverName: 'Rohit Sharma',
-      vehicleNumber: 'DL128C',
-      vehicleModel: 'M-MODEL',
-      arrivalTime: '10:00 AM',
-      duration: '42 mins',
-      driverRating: 4.5,
-      fare: 315,
-      pic: 'https://st2.depositphotos.com/1372276/5324/i/600/depositphotos_53246545-stock-photo-portrait-taxi-driver-smile-car.jpg',
-    },
-    {
-      id: 2,
-      driverName: 'Ana James',
-      vehicleNumber: 'UK528C',
-      vehicleModel: 'M-MODEL',
-      arrivalTime: '10:00 AM',
-      duration: '37 mins',
-      driverRating: 3.4,
-      fare: 408,
-      pic: 'https://www.keeptaxisalive.org/wp-content/uploads/2019/05/download-2.jpg',
-    },
+      id: 0,
+      driverName: '',
+      vehicleNumber: '',
+      vehicleModel: '',
+      arrivalTime: '',
+      duration: '',
+      driverRating: 0,
+      fare: 0,
+      pic: ''
+    }
   ];
   viewDiver: any;
   closeResult = '';
@@ -51,16 +40,9 @@ export class BookingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.isAdmin === 'true') {
-      this.router.navigate(['/admin']);
-    }
-
-
   }
 
   getData() {
-
-    debugger
     if (this.from !== "" && this.to !== "") {
       if (this.from === this.to) {
         this.validateFromTo = true;
@@ -84,7 +66,6 @@ export class BookingComponent implements OnInit {
   }
 
   open(content: any, driverId: any) {
-    debugger
     this.viewDiver = this.drivers[driverId - 1];
     let rideDetails = {
       id: this.viewDiver.id,
