@@ -43,6 +43,9 @@ export class BookingComponent implements OnInit {
   }
 
   getData() {
+    this.validateNoDrivers = false;
+    this.validateFromTo = false;
+
     if (this.from !== "" && this.to !== "") {
       if (this.from === this.to) {
         this.validateFromTo = true;
