@@ -21,8 +21,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void { }
 
   registerUser() {
-    
-    console.log(this.registerUserData)
+
     if (this.registerUserData.name.trim() === '') {
       this.validateName = true;
       return;

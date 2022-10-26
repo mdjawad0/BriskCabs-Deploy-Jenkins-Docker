@@ -18,15 +18,10 @@ export class RideComponent implements OnInit , OnDestroy{
     driverRating: 4.5,
     fare: 315,
   };
-  isAdmin = window.localStorage.getItem('isAdmin');
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    if (this.isAdmin === 'true') {
-      this.router.navigate(['/admin']);
-    }
     if (sessionStorage.getItem("rideDetails") != null) {
-      debugger
       let rideDetails : any = sessionStorage.getItem("rideDetails")
       this.rideDetails = JSON.parse(rideDetails);
     }

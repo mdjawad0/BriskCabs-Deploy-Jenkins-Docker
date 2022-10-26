@@ -13,7 +13,6 @@ export class BookingComponent implements OnInit {
   from: string = '';
   to: string = '';
   readonly: boolean = true;
-  isAdmin = window.localStorage.getItem('isAdmin')
   validateFromTo = false;
 
 
