@@ -95,8 +95,18 @@ export class BookingComponent implements OnInit {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         }
       );
-
   }
+
+storeBookingDetails(driverDetails: any){
+  console.log(driverDetails);
+    this.authSerivce.recordBooking(driverDetails).subscribe((res: any) => {
+      console.log("Ride Details saved successfully")
+      },
+      (err) => {
+        console.log("Something went wrong")
+      }
+    );
+}
 
 
   private getDismissReason(reason: any): string {

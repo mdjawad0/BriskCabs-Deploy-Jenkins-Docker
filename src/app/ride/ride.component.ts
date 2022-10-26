@@ -29,18 +29,6 @@ export class RideComponent implements OnInit , OnDestroy{
     }
   }
 
-  storeBookingDetails(){
-  console.log(this.rideDetails)
-    this._auth.recordBooking(this.rideDetails).subscribe(
-      (res) => {
-      console.log("Ride Details saved successfully")
-      },
-      (err) => {
-        console.log("Something went wrong")
-      }
-    );
-}
-
   ngOnDestroy() {
     sessionStorage.removeItem("rideDetails")
   }
