@@ -15,7 +15,7 @@ export class BookingComponent implements OnInit {
   to: string = '';
   readonly: boolean = true;
   validateFromTo = false;
-
+  validateNoDrivers = false;
   drivers = [
     {
       id: 0,
@@ -54,11 +54,20 @@ export class BookingComponent implements OnInit {
           from: this.from,
           to: this.to
         }
-
         this.authSerivce.getDrivers(data,this.from,this.to).subscribe((res: any) => {
-          this.drivers = res;
+          debugger
+          if (res.length > 0)
+          {
+            this.drivers = res;
+            this.validateNoDrivers = false;
+          }
+          else
+          {
+            this.validateNoDrivers = true;
+          }
            console.log("service res"+this.drivers);
         }, (error) => {
+          this.validateNoDrivers = true;
           console.log(error);
         })
       }
