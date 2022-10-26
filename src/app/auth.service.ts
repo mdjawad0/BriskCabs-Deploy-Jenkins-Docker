@@ -13,7 +13,7 @@ export class AuthService {
     return this.http.post<any>(`${environment.apiURL}/user/`, user);
   }
 
-  getDrivers(data: any) {
-    return this.http.get(`${environment.apiURL}/nearbyDrivers`, data);
+  getDrivers(data: any,from: any,to: any) {
+    return this.http.get(`${environment.apiURL}/nearbyDrivers?from=`+from+`&to=`+to, data);
   }
 }

@@ -7,8 +7,10 @@
       "vehicleModel": "Swift",
       "arrivalTime": "10:00 AM",
       "duration": "42 mins",
-      "driverRating": 5.0,
+      "driverRating": 5,
       "fare": 315,
+      "from": "Delhi",
+      "to": "Noida",
       "pic": "https://st2.depositphotos.com/1372276/5324/i/600/depositphotos_53246545-stock-photo-portrait-taxi-driver-smile-car.jpg"
     },
     {
@@ -18,9 +20,27 @@
       "vehicleModel": "City",
       "arrivalTime": "10:05 AM",
       "duration": "37 mins",
-      "driverRating": 4.0,
+      "driverRating": 4,
       "fare": 408,
+      "from": "Gurugram",
+      "to": "Delhi",
       "pic": "https://www.keeptaxisalive.org/wp-content/uploads/2019/05/download-2.jpg"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "name": "Steve",
+      "age": "21",
+      "username": "steve123",
+      "password": "qwerty123",
+      "address": "Street 12, New Delhi",
+      "referralCode": "R123",
+      "isCabRider": "Yes",
+      "panCard": "GUE377IEI0",
+      "rc": "R123",
+      "dl": "DL59839",
+      "vehicle": "Toyota Innova"
     }
   ]
 }
