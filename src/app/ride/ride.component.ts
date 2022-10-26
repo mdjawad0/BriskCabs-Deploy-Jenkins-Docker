@@ -9,16 +9,16 @@ import { AuthService } from '../auth.service';
 })
 export class RideComponent implements OnInit , OnDestroy{
   rideDetails = {
-    id: 1,
-    from: 'Gurgaon',
-    to: 'Delhi',
-    driverName: 'Rohit Sharma',
-    vehicleNumber: 'DL128C',
-    vehicleModel: 'M-MODEL',
-    arrivalTime: '10:00 AM',
-    duration: '42 mins',
-    driverRating: 4.5,
-    fare: 315,
+    id: 0,
+    from: '',
+    to: '',
+    driverName: '',
+    vehicleNumber: '',
+    vehicleModel: '',
+    arrivalTime: '',
+    duration: '',
+    driverRating: 0,
+    fare: 0,
   };
   constructor(private router: Router,private _auth: AuthService) {}
 
