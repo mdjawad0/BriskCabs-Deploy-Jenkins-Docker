@@ -9,12 +9,12 @@ import { AuthService } from '../auth.service';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss'],
 })
+
 export class BookingComponent implements OnInit {
   from: string = '';
   to: string = '';
   readonly: boolean = true;
   validateFromTo = false;
-
 
   drivers = [
     {
@@ -31,6 +31,7 @@ export class BookingComponent implements OnInit {
   ];
   viewDiver: any;
   closeResult = '';
+
   constructor(
     private modalService: NgbModal,
     private router: Router,
@@ -56,6 +57,7 @@ export class BookingComponent implements OnInit {
 
         this.authSerivce.getDrivers(data,this.from,this.to).subscribe((res: any) => {
           this.drivers = res;
+           console.log("service res"+this.drivers);
         }, (error) => {
           console.log(error);
         })
@@ -64,8 +66,12 @@ export class BookingComponent implements OnInit {
     }
   }
 
-  open(content: any, driverId: any) {
-    this.viewDiver = this.drivers[driverId - 1];
+  open(content: any,driverDetails: any, driverId: any) {
+  console.log(driverDetails);
+  console.log("dr id"+driverId);
+
+    this.viewDiver = driverDetails;
+    console.log(this.viewDiver);
     let rideDetails = {
       id: this.viewDiver.id,
       from: this.from,

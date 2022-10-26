@@ -16,4 +16,8 @@ export class AuthService {
   getDrivers(data: any,from: any,to: any) {
     return this.http.get(`${environment.apiURL}/nearbyDrivers?from=`+from+`&to=`+to, data);
   }
+
+  recordBooking(bookingDetails: any){
+   return this.http.post<any>(`${environment.apiURL}/booking/`, bookingDetails);
+  }
 }

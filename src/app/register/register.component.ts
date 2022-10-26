@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
+
 export class RegisterComponent implements OnInit {
   registerUserData: any = {};
   validateName = false;
@@ -56,7 +58,6 @@ export class RegisterComponent implements OnInit {
     this._auth.registerUser(this.registerUserData).subscribe(
       (res) => {
         this.toastr.success("Registered Successfully!");
-        localStorage.setItem("isLoggedIn", "true");
         this.router.navigate(["/booking"]);
       },
       (err) => {

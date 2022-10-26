@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-ride',
   templateUrl: './ride.component.html',
@@ -18,7 +20,7 @@ export class RideComponent implements OnInit , OnDestroy{
     driverRating: 4.5,
     fare: 315,
   };
-  constructor(private router: Router) {}
+  constructor(private router: Router,private _auth: AuthService) {}
 
   ngOnInit(): void {
     if (sessionStorage.getItem("rideDetails") != null) {
@@ -26,6 +28,19 @@ export class RideComponent implements OnInit , OnDestroy{
       this.rideDetails = JSON.parse(rideDetails);
     }
   }
+
+  storeBookingDetails(){
+  console.log(this.rideDetails)
+    this._auth.recordBooking(this.rideDetails).subscribe(
+      (res) => {
+      console.log("Ride Details saved successfully")
+      },
+      (err) => {
+        console.log("Something went wrong")
+      }
+    );
+}
+
   ngOnDestroy() {
     sessionStorage.removeItem("rideDetails")
   }
