@@ -50,7 +50,7 @@
                 <h4>{{ driver.driverName }}</h4>
                 <div>Vehicle Model: {{ driver.vehicleModel }}</div>
                 <div class="d-flex gap-3">
-                  <span>Arival at: {{ driver.arrivalTime }}</span>
+                  <span>Arrival at: {{ driver.arrivalTime }}</span>
                   <span>Duration: {{ driver.duration }}</span>
                 </div>
                 <div>
@@ -84,18 +84,18 @@
     <div class="modal-body">
       <div class="card-body d-flex flex-column gap-4 align-items-center justify-content-between">
         <div class="d-flex gap-4 align-items-center">
-          <img src="{{ viewDiver.pic }}" alt="driver image" width="130" height="130" class="rounded-circle" />
+          <img src="{{ viewDriver.pic }}" alt="driver image" width="130" height="130" class="rounded-circle" />
           <div>
-            <h4>{{ viewDiver.driverName }}</h4>
-            <div>Vehicle Model: {{ viewDiver.vehicleModel }}</div>
+            <h4>{{ viewDriver.driverName }}</h4>
+            <div>Vehicle Model: {{ viewDriver.vehicleModel }}</div>
             <div class="d-flex gap-3">
-              <span>Arival at: {{ viewDiver.arrivalTime }}</span>
-              <span>Duration: {{ viewDiver.duration }}</span>
+              <span>Arrival at: {{ viewDriver.arrivalTime }}</span>
+              <span>Duration: {{ viewDriver.duration }}</span>
             </div>
-            <div>ratings: {{ viewDiver.driverRating }}</div>
+            <div>ratings: {{ viewDriver.driverRating }}</div>
             <div>
               fair:
-              <span class="fw-semibold text-warning">{{ viewDiver.fare }}</span>
+              <span class="fw-semibold text-warning">{{ viewDriver.fare }}</span>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="storeBookingDetails(viewDiver);modal.close('Save click'); redirectToRide(); ">
+      <button type="button" class="btn btn-outline-dark" (click)="storeBookingDetails(viewDriver);modal.close('Save click'); redirectToRide(); ">
         Book Now
       </button>
     </div>

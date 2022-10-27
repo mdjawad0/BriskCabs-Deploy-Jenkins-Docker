@@ -29,7 +29,7 @@ export class BookingComponent implements OnInit {
       pic: ''
     }
   ];
-  viewDiver: any;
+  viewDriver: any;
   closeResult = '';
 
   constructor(
@@ -66,9 +66,7 @@ export class BookingComponent implements OnInit {
           {
             this.validateNoDrivers = true;
             this.drivers = [];
-
           }
-        console.log("service res"+this.drivers);
         }, (error) => {
           this.validateNoDrivers = true;
           this.drivers = [];
@@ -80,22 +78,18 @@ export class BookingComponent implements OnInit {
   }
 
   open(content: any,driverDetails: any, driverId: any) {
-  console.log(driverDetails);
-  console.log("dr id"+driverId);
-
-    this.viewDiver = driverDetails;
-    console.log(this.viewDiver);
+    this.viewDriver = driverDetails;
     let rideDetails = {
-      id: this.viewDiver.id,
+      id: this.viewDriver.id,
       from: this.from,
       to: this.to,
-      driverName: this.viewDiver.driverName,
-      vehicleNumber: this.viewDiver.vehicleNumber,
-      vehicleModel: this.viewDiver.vehicleModel,
-      arrivalTime: this.viewDiver.arrivalTime,
-      duration: this.viewDiver.duration,
-      driverRating: this.viewDiver.driverRating,
-      fare: this.viewDiver.fare,
+      driverName: this.viewDriver.driverName,
+      vehicleNumber: this.viewDriver.vehicleNumber,
+      vehicleModel: this.viewDriver.vehicleModel,
+      arrivalTime: this.viewDriver.arrivalTime,
+      duration: this.viewDriver.duration,
+      driverRating: this.viewDriver.driverRating,
+      fare: this.viewDriver.fare,
     };
     sessionStorage.setItem("rideDetails", JSON.stringify(rideDetails));
     this.modalService
@@ -111,7 +105,6 @@ export class BookingComponent implements OnInit {
   }
 
 storeBookingDetails(driverDetails: any){
-  console.log(driverDetails);
     this.authSerivce.recordBooking(driverDetails).subscribe((res: any) => {
       console.log("Ride Details saved successfully")
       },
