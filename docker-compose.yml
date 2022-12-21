@@ -13,7 +13,7 @@ services:
     #- briskcabs
   json-server:
     container_name: json-server-container
-    image: json-server-image
+    image: theguyfromearth/json-server-image:latest
     build: ./db
     ports:
       - "3333:3333"
