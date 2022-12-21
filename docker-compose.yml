@@ -1,0 +1,21 @@
+version: "3"
+services:
+  app:
+    container_name: app-container
+    image: theguyfromearth/brisk-cabs:latest
+    restart: always
+    build: .
+    environment:
+      - DB_HOST=json-server
+    ports:
+      - "4200:4200"
+  json-server:
+    container_name: json-server-container
+    image: theguyfromearth/json-server-image:latest
+    build: ./db
+    ports:
+      - "3333:3333"
+    volumes:
+      - ./db.json:/data/db.json
+    command: json-server --watch /data/db.json --host 0.0.0.0
+
