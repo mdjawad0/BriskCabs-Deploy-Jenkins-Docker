@@ -1,13 +1,11 @@
 #stage 1
-FROM node:alpine as cab
+FROM node:latest as node
 WORKDIR /app
-COPY package*.json ./
 COPY . .
 RUN npm install
-RUN npm run build
-EXPOSE 4200
-CMD ["npm","start"]
-
+RUN npm run build --prod
 #stage 2
-FROM nginx:alpine as brisk-cabs
-COPY --from=cab /app/dist/brisk_cabs /usr/share/nginx/html
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=node /app/dist/brisk_cabs  /usr/share/nginx/html
+EXPOSE 4200
