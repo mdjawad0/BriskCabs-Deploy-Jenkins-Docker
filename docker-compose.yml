@@ -16,7 +16,7 @@ services:
     image: theguyfromearth/json-server-image:latest
     build: ./db
     ports:
-      - "3333:3333"
+      - "3000:3000"
     volumes:
       - ./db.json:/data/db.json
     command: json-server --watch /data/db.json --host 0.0.0.0
