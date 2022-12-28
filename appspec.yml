@@ -1,0 +1,13 @@
+version: 0.0
+os: ubuntu
+files:
+  - source: /
+    destination: /home/briskCabs-FE
+hooks:
+ AfterInstall:
+    - location: scripts.sh
+      timeout: 300
+      runas: root
+    
+
+
