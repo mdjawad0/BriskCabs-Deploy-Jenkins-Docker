@@ -5,19 +5,19 @@ files:
     destination: /home/briskCabs-FE
 hooks:
   BeforeInstall:
-    - location: /home/briskCabs-FE/scripts/BeforeInstall.sh
+    - location: scripts/BeforeInstall.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: /home/briskCabs-FE/scripts/AfterInstall.sh
+    - location: scripts/AfterInstall.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: /home/briskCabs-FE/scripts/ApplicationStart.sh
+    - location: scripts/ApplicationStart.sh
       timeout: 300
       runas: root
   ApplicationStop:
-    - location: /home/briskCabs-FE/scripts/ApplicationStop.sh
+    - location: scripts/ApplicationStop.sh
       timeout: 300
       runas: root 
 
