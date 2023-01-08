@@ -13,7 +13,7 @@ services:
       - "80:80"
 
   json-server:
-    container_name: json-server-container
+    container_name: jsonservercontainer
     image: json-server-image:latest
     build: ./db
     ports:
