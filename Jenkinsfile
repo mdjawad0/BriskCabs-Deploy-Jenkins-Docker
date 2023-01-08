@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     stages {
-       stage("Run") {
+       stage("Deploy") {
             steps {
                   sh 'docker-compose up -d --no-color --wait'
                   sh 'docker-compose ps'
