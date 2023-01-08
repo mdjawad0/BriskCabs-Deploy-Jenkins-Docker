@@ -6,7 +6,7 @@ services:
     restart: always
     build: .
     depends_on:
-      - json-server-image:latest
+      - json-server
     environment:
       - DB_HOST=json-server
     ports:
