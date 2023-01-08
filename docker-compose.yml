@@ -13,12 +13,12 @@ services:
     #- briskcabs
   json-server:
     container_name: json-server-container
-    image: theguyfromearth/json-server-image:latest
+    image: json-server-image:latest
     build: ./db
     ports:
       - "3000:3000"
     volumes:
       - ./db.json:/data/db.json
     command: json-server --watch /data/db.json --host 0.0.0.0
-    
+
 
