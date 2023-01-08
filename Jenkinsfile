@@ -6,7 +6,7 @@ pipeline {
        stage("build") {
             steps {
                   sh 'docker-compose up -d --no-color --wait'
-                  sh 'docker compose ps'
+                  sh 'docker-compose ps'
                 }
             }
        stage("test") {
@@ -17,8 +17,8 @@ pipeline {
     }
     post{
         always{
-          sh 'docker compose down --remove-orphans -v'
-          sh 'docker compose ps'
+          sh 'docker-compose down --remove-orphans -v'
+          sh 'docker-compose ps'
         }
     }
 }
