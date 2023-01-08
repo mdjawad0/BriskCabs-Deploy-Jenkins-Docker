@@ -3,14 +3,14 @@ pipeline {
     agent any
 
     stages {
-       stage(‘Build’) {
-                steps {
-                    echo 'building....'
+       stage(‘build’) {
+            steps {
+                  echo 'building....'
                 }
             }
-        stage(‘Build Docker’) {
+       stage(‘test’) {
             steps {
-                sh '/usr/local/bin/docker-compose up --build'
+                   echo 'testing....'
             }
         }
     }
