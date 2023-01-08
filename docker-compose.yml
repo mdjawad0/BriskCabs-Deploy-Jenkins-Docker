@@ -9,8 +9,8 @@ services:
       - DB_HOST=json-server
     ports:
       - "80:80"
-    #networks:
-    #- briskcabs
+    network_mode: host
+
   json-server:
     container_name: json-server-container
     image: json-server-image:latest
