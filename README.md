@@ -26,7 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Change the endpoint as per you EC2 in the src/environments folder
+Change the endpoint as per your EC2 in the src/environments folder.
 
-## Before running the Jenkins pipeline make sure to kill all the active Docker containers with the command:
+Before running the Jenkins pipeline, use the command to kill all active Docker containers.:
 `sudodocker stop $ (sudo docker ps -a -q)s`
