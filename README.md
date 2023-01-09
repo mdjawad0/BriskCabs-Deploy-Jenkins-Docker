@@ -29,4 +29,4 @@ Change the endpoint as per your EC2 in the **/src/environments/** folder.
 
 Before running the Jenkins pipeline, use the command to kill all active Docker containers:
 
-`sudodocker stop $ (sudo docker ps -a -q)s`
+`sudo docker stop $(sudo docker ps -a -q)`
