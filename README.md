@@ -29,4 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 # Change the endpoint as per you EC2 in the src/environments folder
 
 # Before running the Jenkins pipeline make sure to kill all the active Docker containers with the command:
-**sudodocker stop $ (sudo docker ps -a -q)s**
+`sudodocker stop $ (sudo docker ps -a -q)s`
