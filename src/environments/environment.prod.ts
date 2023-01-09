@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: "http://jsonservercontainer:3000"
+  apiURL: "http://0.0.0.0:3000"
 };
